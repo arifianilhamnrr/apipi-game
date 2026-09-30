@@ -1,0 +1,154 @@
+[gd_scene format=4 uid="uid://ey51kuo3ya66"]
+
+[ext_resource type="Texture2D" uid="uid://bdy6m0wy1d8wh" path="res://assets/Background/Brown.png" id="1_d21ai"]
+[ext_resource type="Texture2D" uid="uid://d3sskgms61le8" path="res://assets/Terrain/Terrain (16x16).png" id="2_rj586"]
+[ext_resource type="Texture2D" uid="uid://bcq7bcl7i7oxr" path="res://assets/Items/Checkpoints/Start/Start (Idle).png" id="3_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://d5mwxaf5e4wi" path="res://assets/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="4_ir8iy"]
+[ext_resource type="Texture2D" uid="uid://cxh1qihuxsewc" path="res://assets/Items/Checkpoints/End/End (Idle).png" id="5_hqns4"]
+[ext_resource type="Texture2D" uid="uid://bnewobjv1sy2l" path="res://assets/Items/Fruits/Apple.png" id="6_x0ka3"]
+[ext_resource type="Texture2D" uid="uid://cmgd7i36acf4" path="res://assets/Items/Boxes/Box1/Idle.png" id="7_0h7mo"]
+[ext_resource type="PackedScene" uid="uid://bm60mbrilfj1l" path="res://characters/mask_dude.tscn" id="8_ir8iy"]
+[ext_resource type="Script" uid="uid://dusmkc3jb7h7k" path="res://characters/mask_dude.gd" id="9_4d7sh"]
+[ext_resource type="AudioStream" uid="uid://yys6j6qaqqg7" path="res://assets/Audio/mario_bgm.mp3" id="10_ir8iy"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nr8wp"]
+texture = ExtResource("2_rj586")
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_d2bti"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_nr8wp")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ckct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yxu7"]
+
+[node name="Node2D" type="Node2D" unique_id=377837935]
+texture_filter = 1
+
+[node name="Background" type="TextureRect" parent="." unique_id=352346185]
+offset_right = 1080.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("1_d21ai")
+stretch_mode = 1
+
+[node name="Map" type="Node2D" parent="." unique_id=1235911753]
+scale = Vector2(1.6, 1.6)
+
+[node name="Terrain" type="TileMapLayer" parent="Map" unique_id=339669245]
+tile_map_data = PackedByteArray("AAAOABIAAAAGAAAAAAAOABMAAAAGAAIAAAAPABIAAAAHAAAAAAAPABMAAAAHAAIAAAAQABIAAAAHAAAAAAAQABMAAAAHAAIAAAARABIAAAAIAAAAAAARABMAAAAIAAIAAAAUABEAAAAGAAIAAAAVABEAAAAHAAIAAAAWABEAAAAHAAIAAAAbABIAAAAGAAAAAAAbABMAAAAGAAIAAAAcABIAAAAHAAAAAAAcABMAAAAHAAIAAAAdABIAAAAHAAAAAAAdABMAAAAHAAIAAAAeABIAAAAIAAAAAAAeABMAAAAIAAIAAAAPAAwAAAAGAAAAAAAPAA0AAAAGAAIAAAAVAAoAAAAGAAIAAAAYAAkAAAAIAAAAAAAAABgAAAAGAAAAAAAAABkAAAAGAAEAAAAAABoAAAAGAAEAAAAAABsAAAAGAAEAAAAAABwAAAAGAAIAAAABABgAAAAHAAAAAAABABkAAAAHAAEAAAABABoAAAAHAAEAAAABABsAAAAHAAEAAAABABwAAAAHAAIAAAACABgAAAAHAAAAAAACABkAAAAHAAEAAAACABoAAAAHAAEAAAACABsAAAAHAAEAAAACABwAAAAHAAIAAAADABgAAAAHAAAAAAADABkAAAAHAAEAAAADABoAAAAHAAEAAAADABsAAAAHAAEAAAADABwAAAAHAAIAAAAEABgAAAAHAAAAAAAEABkAAAAHAAEAAAAEABoAAAAHAAEAAAAEABsAAAAHAAEAAAAEABwAAAAHAAIAAAAFABgAAAAHAAAAAAAFABkAAAAHAAEAAAAFABoAAAAHAAEAAAAFABsAAAAHAAEAAAAFABwAAAAHAAIAAAAGABgAAAAHAAAAAAAGABkAAAAHAAEAAAAGABoAAAAHAAEAAAAGABsAAAAHAAEAAAAGABwAAAAHAAIAAAAHABgAAAAHAAAAAAAHABkAAAAHAAEAAAAHABoAAAAHAAEAAAAHABsAAAAHAAEAAAAHABwAAAAHAAIAAAAIABgAAAAHAAAAAAAIABkAAAAHAAEAAAAIABoAAAAHAAEAAAAIABsAAAAHAAEAAAAIABwAAAAHAAIAAAAJABgAAAAHAAAAAAAJABkAAAAHAAEAAAAJABoAAAAHAAEAAAAJABsAAAAHAAEAAAAJABwAAAAHAAIAAAAKABgAAAAIAAAAAAAKABkAAAAIAAEAAAAKABoAAAAIAAEAAAAKABsAAAAIAAEAAAAKABwAAAAIAAIAAAAOABoAAAAGAAAAAAAOABsAAAAGAAEAAAAOABwAAAAGAAIAAAAPABoAAAAHAAAAAAAPABsAAAAHAAEAAAAPABwAAAAHAAIAAAAQABoAAAAHAAAAAAAQABsAAAAHAAEAAAAQABwAAAAHAAIAAAARABoAAAAHAAAAAAARABsAAAAHAAEAAAARABwAAAAHAAIAAAASABoAAAAHAAAAAAASABsAAAAHAAEAAAASABwAAAAHAAIAAAATABoAAAAHAAAAAAATABsAAAAHAAEAAAATABwAAAAHAAIAAAAUABoAAAAHAAAAAAAUABsAAAAHAAEAAAAUABwAAAAHAAIAAAAVABoAAAAHAAAAAAAVABsAAAAHAAEAAAAVABwAAAAHAAIAAAAWABoAAAAHAAAAAAAWABsAAAAHAAEAAAAWABwAAAAHAAIAAAAXABoAAAAHAAAAAAAXABsAAAAHAAEAAAAXABwAAAAHAAIAAAAYABoAAAAHAAAAAAAYABsAAAAHAAEAAAAYABwAAAAHAAIAAAAZABoAAAAHAAAAAAAZABsAAAAHAAEAAAAZABwAAAAHAAIAAAAaABoAAAAIAAAAAAAaABsAAAAIAAEAAAAaABwAAAAIAAIAAAAeABcAAAAGAAAAAAAeABgAAAAGAAEAAAAeABkAAAAGAAEAAAAeABoAAAAGAAEAAAAeABsAAAAGAAEAAAAeABwAAAAGAAIAAAAfABcAAAAHAAAAAAAfABgAAAAHAAEAAAAfABkAAAAHAAEAAAAfABoAAAAHAAEAAAAfABsAAAAHAAEAAAAfABwAAAAHAAIAAAAgABcAAAAHAAAAAAAgABgAAAAHAAEAAAAgABkAAAAHAAEAAAAgABoAAAAHAAEAAAAgABsAAAAHAAEAAAAgABwAAAAHAAIAAAAhABcAAAAHAAAAAAAhABgAAAAHAAEAAAAhABkAAAAHAAEAAAAhABoAAAAHAAEAAAAhABsAAAAHAAEAAAAhABwAAAAHAAIAAAAiABcAAAAHAAAAAAAiABgAAAAHAAEAAAAiABkAAAAHAAEAAAAiABoAAAAHAAEAAAAiABsAAAAHAAEAAAAiABwAAAAHAAIAAAAjABcAAAAHAAAAAAAjABgAAAAHAAEAAAAjABkAAAAHAAEAAAAjABoAAAAHAAEAAAAjABsAAAAHAAEAAAAjABwAAAAHAAIAAAAkABcAAAAHAAAAAAAkABgAAAAHAAEAAAAkABkAAAAHAAEAAAAkABoAAAAHAAEAAAAkABsAAAAHAAEAAAAkABwAAAAHAAIAAAAlABcAAAAHAAAAAAAlABgAAAAHAAEAAAAlABkAAAAHAAEAAAAlABoAAAAHAAEAAAAlABsAAAAHAAEAAAAlABwAAAAHAAIAAAAmABcAAAAHAAAAAAAmABgAAAAHAAEAAAAmABkAAAAHAAEAAAAmABoAAAAHAAEAAAAmABsAAAAHAAEAAAAmABwAAAAHAAIAAAAnABcAAAAHAAAAAAAnABgAAAAHAAEAAAAnABkAAAAHAAEAAAAnABoAAAAHAAEAAAAnABsAAAAHAAEAAAAnABwAAAAHAAIAAAAoABcAAAAHAAAAAAAoABgAAAAHAAEAAAAoABkAAAAHAAEAAAAoABoAAAAHAAEAAAAoABsAAAAHAAEAAAAoABwAAAAHAAIAAAApABcAAAAHAAAAAAApABgAAAAHAAEAAAApABkAAAAHAAEAAAApABoAAAAHAAEAAAApABsAAAAHAAEAAAApABwAAAAHAAIAAAAqABcAAAAIAAAAAAAqABgAAAAIAAEAAAAqABkAAAAIAAEAAAAqABoAAAAIAAEAAAAqABsAAAAIAAEAAAAqABwAAAAIAAIAAAAIABUAAAAGAAAAAAAIABYAAAAGAAIAAAAJABUAAAAHAAAAAAAJABYAAAAHAAIAAAAKABUAAAAHAAAAAAAKABYAAAAHAAIAAAALABUAAAAIAAAAAAALABYAAAAIAAIAAAAUAA8AAAAGAAAAAAAUABAAAAAGAAEAAAAVAA8AAAAHAAAAAAAVABAAAAAHAAEAAAAWAA8AAAAHAAAAAAAWABAAAAAHAAEAAAAXAA8AAAAHAAAAAAAXABAAAAAHAAEAAAAXABEAAAAHAAIAAAAYAA8AAAAHAAAAAAAYABAAAAAHAAEAAAAYABEAAAAHAAIAAAAZAA8AAAAIAAAAAAAZABAAAAAIAAEAAAAZABEAAAAIAAIAAAAhAA8AAAAGAAAAAAAhABAAAAAGAAIAAAAiAA8AAAAHAAAAAAAiABAAAAAHAAIAAAAjAA8AAAAHAAAAAAAjABAAAAAHAAIAAAAkAA8AAAAIAAAAAAAkABAAAAAIAAIAAAAmAAwAAAAGAAAAAAAmAA0AAAAGAAIAAAAnAAwAAAAHAAAAAAAnAA0AAAAHAAIAAAAoAAwAAAAHAAAAAAAoAA0AAAAHAAIAAAApAAwAAAAHAAAAAAApAA0AAAAHAAIAAAAqAAwAAAAIAAAAAAAqAA0AAAAIAAIAAAAQAAwAAAAHAAAAAAAQAA0AAAAHAAIAAAARAAwAAAAIAAAAAAARAA0AAAAIAAIAAAAVAAkAAAAGAAAAAAAWAAkAAAAHAAAAAAAWAAoAAAAHAAIAAAAXAAkAAAAHAAAAAAAXAAoAAAAHAAIAAAAYAAoAAAAIAAIAAAAcAAoAAAAGAAAAAAAcAAsAAAAGAAIAAAAdAAoAAAAHAAAAAAAdAAsAAAAHAAIAAAAeAAoAAAAHAAAAAAAeAAsAAAAHAAIAAAAfAAoAAAAIAAAAAAAfAAsAAAAIAAIAAAA=")
+tile_set = SubResource("TileSet_d2bti")
+
+[node name="Landmarks" type="Node2D" parent="Map" unique_id=1781355353]
+
+[node name="Start" type="Sprite2D" parent="Map/Landmarks" unique_id=1288789959]
+position = Vector2(48, 352)
+texture = ExtResource("3_4d7sh")
+
+[node name="Checkpoint" type="Sprite2D" parent="Map/Landmarks" unique_id=1703221400]
+position = Vector2(352, 208)
+texture = ExtResource("4_ir8iy")
+hframes = 10
+
+[node name="Finish" type="Sprite2D" parent="Map/Landmarks" unique_id=122209733]
+position = Vector2(648, 160)
+texture = ExtResource("5_hqns4")
+
+[node name="PlayerSpawn" type="Marker2D" parent="Map" unique_id=1850246337]
+position = Vector2(64, 368)
+
+[node name="FruitPlacement" type="Node2D" parent="Map" unique_id=402993029]
+
+[node name="Apple01" type="Sprite2D" parent="Map/FruitPlacement" unique_id=730391611]
+position = Vector2(152, 320)
+texture = ExtResource("6_x0ka3")
+hframes = 17
+
+[node name="Apple02" type="Sprite2D" parent="Map/FruitPlacement" unique_id=674624846]
+position = Vector2(248, 272)
+texture = ExtResource("6_x0ka3")
+hframes = 17
+
+[node name="Apple03" type="Sprite2D" parent="Map/FruitPlacement" unique_id=993307132]
+position = Vector2(392, 224)
+texture = ExtResource("6_x0ka3")
+hframes = 17
+
+[node name="Apple04" type="Sprite2D" parent="Map/FruitPlacement" unique_id=1752909191]
+position = Vector2(464, 272)
+texture = ExtResource("6_x0ka3")
+hframes = 17
+
+[node name="Apple05" type="Sprite2D" parent="Map/FruitPlacement" unique_id=632640086]
+position = Vector2(560, 224)
+texture = ExtResource("6_x0ka3")
+hframes = 17
+
+[node name="Apple06" type="Sprite2D" parent="Map/FruitPlacement" unique_id=304216123]
+position = Vector2(264, 176)
+texture = ExtResource("6_x0ka3")
+hframes = 17
+
+[node name="Apple07" type="Sprite2D" parent="Map/FruitPlacement" unique_id=106115163]
+position = Vector2(360, 128)
+texture = ExtResource("6_x0ka3")
+hframes = 17
+
+[node name="Apple08" type="Sprite2D" parent="Map/FruitPlacement" unique_id=1098342222]
+position = Vector2(488, 144)
+texture = ExtResource("6_x0ka3")
+hframes = 17
+
+[node name="Decoration" type="Node2D" parent="Map" unique_id=790292748]
+
+[node name="Crate01" type="StaticBody2D" parent="Map/Decoration" unique_id=219767604]
+position = Vector2(112, 374)
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/Decoration/Crate01" unique_id=495137543]
+texture = ExtResource("7_0h7mo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Decoration/Crate01" unique_id=1870663510]
+shape = SubResource("RectangleShape2D_0ckct")
+
+[node name="Crate02" type="StaticBody2D" parent="Map/Decoration" unique_id=325845159]
+position = Vector2(536, 358)
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/Decoration/Crate02" unique_id=2126531784]
+texture = ExtResource("7_0h7mo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Decoration/Crate02" unique_id=1724790268]
+shape = SubResource("RectangleShape2D_0yxu7")
+
+[node name="MaskDude" parent="Map" unique_id=277616228 instance=ExtResource("8_ir8iy")]
+position = Vector2(64, 368)
+script = ExtResource("9_4d7sh")
+
+[node name="Camera2D" type="Camera2D" parent="Map/MaskDude" unique_id=326596656]
+limit_left = 0
+limit_top = 0
+limit_right = 1080
+limit_bottom = 720
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1209145229]
+stream = ExtResource("10_ir8iy")
+autoplay = true
