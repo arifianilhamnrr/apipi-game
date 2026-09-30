@@ -6,6 +6,7 @@ const DOUBLE_JUMP_VELOCITY = -370.0
 
 var jump_count: int = 0
 var max_jumps: int = 2
+var jump_held: bool = false
 
 var sprite2d: AnimatedSprite2D
 @onready var spawn_position: Vector2 = global_position
@@ -34,6 +35,29 @@ func bounce(force: float = -620.0) -> void:
 	if sprite2d:
 		sprite2d.play("Jump")
 
+func get_movement_direction() -> float:
+	var dir := Input.get_axis("ui_left", "ui_right")
+	if dir == 0.0:
+		if Input.is_physical_key_pressed(KEY_A) or Input.is_key_pressed(KEY_A) or Input.is_physical_key_pressed(KEY_LEFT) or Input.is_key_pressed(KEY_LEFT):
+			dir -= 1.0
+		if Input.is_physical_key_pressed(KEY_D) or Input.is_key_pressed(KEY_D) or Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_key_pressed(KEY_RIGHT):
+			dir += 1.0
+	return clampf(dir, -1.0, 1.0)
+
+func is_jump_just_pressed() -> bool:
+	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_up"):
+		return true
+	var raw_jump := Input.is_physical_key_pressed(KEY_SPACE) or Input.is_key_pressed(KEY_SPACE) \
+		or Input.is_physical_key_pressed(KEY_W) or Input.is_key_pressed(KEY_W) \
+		or Input.is_physical_key_pressed(KEY_UP) or Input.is_key_pressed(KEY_UP)
+	if raw_jump:
+		if not jump_held:
+			jump_held = true
+			return true
+	else:
+		jump_held = false
+	return false
+
 func _physics_process(delta: float) -> void:
 	# Add gravity
 	if not is_on_floor():
@@ -42,7 +66,7 @@ func _physics_process(delta: float) -> void:
 		jump_count = 0
 
 	# Handle jump & double jump
-	if Input.is_action_just_pressed("ui_accept"):
+	if is_jump_just_pressed():
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			jump_count = 1
@@ -53,6 +77,19 @@ func _physics_process(delta: float) -> void:
 			jump_count += 1
 			if sprite2d:
 				sprite2d.play("Double Jump")
+
+	# Horizontal movement
+	var direction := get_movement_direction()
+	if direction < 0:
+		if sprite2d:
+			sprite2d.flip_h = true
+		velocity.x = direction * SPEED
+	elif direction > 0:
+		if sprite2d:
+			sprite2d.flip_h = false
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	# Animations
 	if sprite2d:
@@ -70,21 +107,8 @@ func _physics_process(delta: float) -> void:
 			else:
 				sprite2d.play("Idle")
 
-	# Handle horizontal movement and explicit sprite flip
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction < 0:
-		if sprite2d:
-			sprite2d.flip_h = true
-		velocity.x = direction * SPEED
-	elif direction > 0:
-		if sprite2d:
-			sprite2d.flip_h = false
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
 	move_and_slide()
 
 	# Fall check / Respawn hotkey
-	if global_position.y > 750 or Input.is_action_just_pressed("Respawn"):
+	if global_position.y > 750 or Input.is_action_just_pressed("Respawn") or Input.is_physical_key_pressed(KEY_R) or Input.is_key_pressed(KEY_R):
 		respawn()
