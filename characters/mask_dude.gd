@@ -8,11 +8,17 @@ var jump_count: int = 0
 var max_jumps: int = 2
 var jump_held: bool = false
 
+var max_lives: int = 3
+var lives: int = 3
+var is_invulnerable: bool = false
+
 var sprite2d: AnimatedSprite2D
 @onready var spawn_position: Vector2 = global_position
+var start_position: Vector2
 
 func _ready() -> void:
 	add_to_group("player")
+	start_position = global_position
 	sprite2d = get_node_or_null("AnimatedSprite2D")
 	if sprite2d == null:
 		for child in get_children():
@@ -21,6 +27,8 @@ func _ready() -> void:
 				break
 	if sprite2d:
 		sprite2d.play("Idle")
+	# Initialize HUD lives
+	get_tree().call_group("hud", "update_lives", lives)
 
 func respawn() -> void:
 	global_position = spawn_position
@@ -28,6 +36,36 @@ func respawn() -> void:
 	jump_count = 0
 	if has_node("Camera2D"):
 		$Camera2D.reset_smoothing()
+
+func hit_by_enemy() -> void:
+	if is_invulnerable:
+		return
+		
+	lives -= 1
+	get_tree().call_group("hud", "update_lives", lives)
+	
+	if lives <= 0:
+		# Reset to the very beginning of the level!
+		lives = max_lives
+		spawn_position = start_position
+		get_tree().call_group("hud", "update_lives", lives)
+		respawn()
+		_start_invulnerability(1.5)
+	else:
+		# Respawn at latest checkpoint
+		respawn()
+		_start_invulnerability(1.5)
+
+func _start_invulnerability(duration: float = 1.5) -> void:
+	is_invulnerable = true
+	if sprite2d:
+		var tween = create_tween()
+		for i in range(5):
+			tween.tween_property(sprite2d, "modulate:a", 0.3, 0.15)
+			tween.tween_property(sprite2d, "modulate:a", 1.0, 0.15)
+		tween.tween_callback(func(): is_invulnerable = false)
+	else:
+		is_invulnerable = false
 
 func bounce(force: float = -620.0) -> void:
 	velocity.y = force
@@ -91,23 +129,21 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	# Animations
+	move_and_slide()
+
+	# Animations: clean Jump in air and Run/Idle on floor
 	if sprite2d:
 		if not is_on_floor():
 			if sprite2d.animation == "Double Jump" and sprite2d.is_playing():
 				pass
-			elif velocity.y > 0 and sprite2d.sprite_frames.has_animation("Fall"):
-				sprite2d.play("Fall")
 			else:
-				if sprite2d.animation != "Double Jump":
-					sprite2d.play("Jump")
+				sprite2d.play("Jump")
 		else:
 			if abs(velocity.x) > 1.0:
 				sprite2d.play("Run")
 			else:
 				sprite2d.play("Idle")
 
-	move_and_slide()
 
 	# Fall check / Respawn hotkey
 	if global_position.y > 750 or Input.is_action_just_pressed("Respawn") or Input.is_physical_key_pressed(KEY_R) or Input.is_key_pressed(KEY_R):

@@ -13757,6 +13757,31 @@ theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 2
 text = "0"
 
+[node name="@Label@3" type="Label" parent="HUD/MarginContainer/TopHBox/StatsPanel/@MarginContainer@8/@HBoxContainer@7" unique_id=1813555807]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.4, 0.45, 0.6, 0.6)
+text = "|"
+
+[node name="LivesVBox" type="VBoxContainer" parent="HUD/MarginContainer/TopHBox/StatsPanel/@MarginContainer@8/@HBoxContainer@7" unique_id=1362764378]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -2
+
+[node name="@Label@2" type="Label" parent="HUD/MarginContainer/TopHBox/StatsPanel/@MarginContainer@8/@HBoxContainer@7/LivesVBox" unique_id=1580076956]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(1, 0.4, 0.5, 1)
+text = "❤️ LIVES"
+
+[node name="LivesValue" type="Label" parent="HUD/MarginContainer/TopHBox/StatsPanel/@MarginContainer@8/@HBoxContainer@7/LivesVBox" unique_id=1115694006]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+text = "❤️❤️❤️"
+
 [node name="ControlsPanel" type="PanelContainer" parent="HUD/MarginContainer/TopHBox" unique_id=860111424]
 layout_mode = 2
 mouse_filter = 2

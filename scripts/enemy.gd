@@ -56,5 +56,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		tween.parallel().tween_property(self, "modulate:a", 0.0, 0.15)
 		tween.tween_callback(queue_free)
 	else:
-		if body.has_method("respawn"):
+		if body.has_method("hit_by_enemy"):
+			body.hit_by_enemy()
+		elif body.has_method("respawn"):
 			body.respawn()
