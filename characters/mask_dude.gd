@@ -27,7 +27,6 @@ func _ready() -> void:
 				break
 	if sprite2d:
 		sprite2d.play("Idle")
-	# Initialize HUD lives
 	get_tree().call_group("hud", "update_lives", lives)
 
 func respawn() -> void:
@@ -83,25 +82,27 @@ func get_movement_direction() -> float:
 	return clampf(dir, -1.0, 1.0)
 
 func is_jump_just_pressed() -> bool:
-	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_up"):
-		return true
-	var raw_jump := Input.is_physical_key_pressed(KEY_SPACE) or Input.is_key_pressed(KEY_SPACE) \
-		or Input.is_physical_key_pressed(KEY_W) or Input.is_key_pressed(KEY_W) \
-		or Input.is_physical_key_pressed(KEY_UP) or Input.is_key_pressed(KEY_UP)
-	if raw_jump:
+	var pressed := Input.is_action_pressed("ui_accept") \
+		or Input.is_action_pressed("ui_up") \
+		or Input.is_physical_key_pressed(KEY_SPACE) \
+		or Input.is_physical_key_pressed(KEY_W) \
+		or Input.is_physical_key_pressed(KEY_UP)
+	if pressed:
 		if not jump_held:
 			jump_held = true
 			return true
+		return false
 	else:
 		jump_held = false
-	return false
+		return false
 
 func _physics_process(delta: float) -> void:
 	# Add gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	else:
+	elif velocity.y >= 0:
 		jump_count = 0
+
 
 	# Handle jump & double jump
 	if is_jump_just_pressed():
@@ -131,7 +132,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	# Animations: clean Jump in air and Run/Idle on floor
+	# Animations: single Jump in air, Double Jump only on double jump, Run/Idle on floor
 	if sprite2d:
 		if not is_on_floor():
 			if sprite2d.animation == "Double Jump" and sprite2d.is_playing():
@@ -143,7 +144,6 @@ func _physics_process(delta: float) -> void:
 				sprite2d.play("Run")
 			else:
 				sprite2d.play("Idle")
-
 
 	# Fall check / Respawn hotkey
 	if global_position.y > 750 or Input.is_action_just_pressed("Respawn") or Input.is_physical_key_pressed(KEY_R) or Input.is_key_pressed(KEY_R):

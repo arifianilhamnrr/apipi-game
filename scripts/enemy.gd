@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
-@export var speed: float = 60.0
-@export var patrol_distance: float = 90.0
+@export var speed: float = 65.0
+@export var patrol_distance: float = 80.0
 
 var start_x: float = 0.0
 var direction: int = 1
 var is_dead: bool = false
+var turn_cooldown: float = 0.0
+
 var sprite: AnimatedSprite2D
 
 func _ready() -> void:
@@ -19,6 +21,12 @@ func _ready() -> void:
 				break
 	if sprite and sprite.sprite_frames and sprite.sprite_frames.has_animation("run"):
 		sprite.play("run")
+		
+	# Ensure hitbox is connected reliably in code!
+	var hitbox: Area2D = get_node_or_null("Hitbox")
+	if hitbox:
+		if not hitbox.body_entered.is_connected(_on_hitbox_body_entered):
+			hitbox.body_entered.connect(_on_hitbox_body_entered)
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -27,11 +35,16 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
-	if abs(position.x - start_x) >= patrol_distance:
-		direction = -1 if position.x > start_x else 1
-		
-	if is_on_wall():
-		direction = -direction
+	# Debounce turning so enemy never gets stuck on walls
+	if turn_cooldown > 0.0:
+		turn_cooldown -= delta
+	else:
+		if is_on_wall():
+			direction = -direction
+			turn_cooldown = 0.35
+		elif abs(position.x - start_x) >= patrol_distance:
+			direction = -1 if position.x > start_x else 1
+			turn_cooldown = 0.2
 		
 	velocity.x = direction * speed
 	if sprite:
