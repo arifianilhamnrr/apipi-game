@@ -7,11 +7,17 @@ const DOUBLE_JUMP_VELOCITY = -370.0
 var jump_count: int = 0
 var max_jumps: int = 2
 
-@onready var sprite2d: AnimatedSprite2D = $AnimatedSprite2D
+var sprite2d: AnimatedSprite2D
 @onready var spawn_position: Vector2 = global_position
 
 func _ready() -> void:
 	add_to_group("player")
+	sprite2d = get_node_or_null("AnimatedSprite2D")
+	if sprite2d == null:
+		for child in get_children():
+			if child is AnimatedSprite2D:
+				sprite2d = child
+				break
 	if sprite2d:
 		sprite2d.play("Idle")
 
@@ -49,25 +55,30 @@ func _physics_process(delta: float) -> void:
 				sprite2d.play("Double Jump")
 
 	# Animations
-	if not is_on_floor():
-		if sprite2d:
+	if sprite2d:
+		if not is_on_floor():
 			if sprite2d.animation == "Double Jump" and sprite2d.is_playing():
 				pass
 			elif velocity.y > 0 and sprite2d.sprite_frames.has_animation("Fall"):
-				sprite2d.animation = "Fall"
+				sprite2d.play("Fall")
 			else:
 				if sprite2d.animation != "Double Jump":
-					sprite2d.animation = "Jump"
-	else:
-		if abs(velocity.x) > 1.0:
-			sprite2d.animation = "Run"
+					sprite2d.play("Jump")
 		else:
-			sprite2d.animation = "Idle"
+			if abs(velocity.x) > 1.0:
+				sprite2d.play("Run")
+			else:
+				sprite2d.play("Idle")
 
-	# Handle horizontal movement
+	# Handle horizontal movement and explicit sprite flip
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction != 0:
-		sprite2d.flip_h = direction < 0
+	if direction < 0:
+		if sprite2d:
+			sprite2d.flip_h = true
+		velocity.x = direction * SPEED
+	elif direction > 0:
+		if sprite2d:
+			sprite2d.flip_h = false
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
