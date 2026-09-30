@@ -10724,7 +10724,7 @@ animations = [{
 size = Vector2(26, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcg16"]
-size = Vector2(30, 28)
+size = Vector2(30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g57tj"]
 atlas = ExtResource("41_xjt7e")
@@ -10804,7 +10804,7 @@ animations = [{
 size = Vector2(26, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xpbcv"]
-size = Vector2(30, 28)
+size = Vector2(30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bewie"]
 atlas = ExtResource("41_xjt7e")
@@ -10884,7 +10884,7 @@ animations = [{
 size = Vector2(26, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6bu7"]
-size = Vector2(30, 28)
+size = Vector2(30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w86gs"]
 atlas = ExtResource("41_xjt7e")
@@ -10964,7 +10964,7 @@ animations = [{
 size = Vector2(26, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fbhf"]
-size = Vector2(30, 28)
+size = Vector2(30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80cpf"]
 atlas = ExtResource("41_xjt7e")
@@ -11044,7 +11044,7 @@ animations = [{
 size = Vector2(26, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_766q4"]
-size = Vector2(30, 28)
+size = Vector2(30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nlp3m"]
 atlas = ExtResource("41_xjt7e")
@@ -11124,7 +11124,7 @@ animations = [{
 size = Vector2(26, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nihrn"]
-size = Vector2(30, 28)
+size = Vector2(30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqvgp"]
 atlas = ExtResource("41_xjt7e")
@@ -11204,7 +11204,7 @@ animations = [{
 size = Vector2(26, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltu1c"]
-size = Vector2(30, 28)
+size = Vector2(30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w1hn3"]
 atlas = ExtResource("41_xjt7e")
@@ -11284,7 +11284,7 @@ animations = [{
 size = Vector2(26, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykx2q"]
-size = Vector2(30, 28)
+size = Vector2(30, 30)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xo8l"]
 bg_color = Color(0.07, 0.08, 0.13, 0.88)
@@ -12831,6 +12831,7 @@ shape = SubResource("RectangleShape2D_3c0xd")
 
 [node name="MonsterEnemy1" type="CharacterBody2D" parent="Map/Enemies" unique_id=1334223140]
 position = Vector2(288, 400)
+collision_layer = 2
 script = ExtResource("45_m7xe6")
 speed = 50.0
 patrol_distance = 50.0
@@ -12846,13 +12847,14 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_q44pr")
 
 [node name="Hitbox" type="Area2D" parent="Map/Enemies/MonsterEnemy1" unique_id=1429383842]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Enemies/MonsterEnemy1/Hitbox" unique_id=1909602948]
-position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_rcg16")
 
 [node name="MonsterEnemy2" type="CharacterBody2D" parent="Map/Enemies" unique_id=863071643]
 position = Vector2(560, 352)
+collision_layer = 2
 script = ExtResource("45_m7xe6")
 speed = 50.0
 patrol_distance = 45.0
@@ -12868,13 +12870,14 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_y7jxg")
 
 [node name="Hitbox" type="Area2D" parent="Map/Enemies/MonsterEnemy2" unique_id=792139355]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Enemies/MonsterEnemy2/Hitbox" unique_id=596614157]
-position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_xpbcv")
 
 [node name="MonsterEnemy3" type="CharacterBody2D" parent="Map/Enemies" unique_id=612764462]
 position = Vector2(1024, 240)
+collision_layer = 2
 script = ExtResource("45_m7xe6")
 speed = 50.0
 patrol_distance = 40.0
@@ -12890,13 +12893,14 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_aepfb")
 
 [node name="Hitbox" type="Area2D" parent="Map/Enemies/MonsterEnemy3" unique_id=1803303976]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Enemies/MonsterEnemy3/Hitbox" unique_id=251845381]
-position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_l6bu7")
 
 [node name="MonsterEnemy4" type="CharacterBody2D" parent="Map/Enemies" unique_id=1182734788]
 position = Vector2(1616, 336)
+collision_layer = 2
 script = ExtResource("45_m7xe6")
 speed = 55.0
 patrol_distance = 60.0
@@ -12912,13 +12916,14 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_fu8kb")
 
 [node name="Hitbox" type="Area2D" parent="Map/Enemies/MonsterEnemy4" unique_id=2050282107]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Enemies/MonsterEnemy4/Hitbox" unique_id=1447928764]
-position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_1fbhf")
 
 [node name="MonsterEnemy5" type="CharacterBody2D" parent="Map/Enemies" unique_id=1994138306]
 position = Vector2(2272, 176)
+collision_layer = 2
 script = ExtResource("45_m7xe6")
 speed = 50.0
 patrol_distance = 40.0
@@ -12934,13 +12939,14 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_y8uvh")
 
 [node name="Hitbox" type="Area2D" parent="Map/Enemies/MonsterEnemy5" unique_id=1023592112]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Enemies/MonsterEnemy5/Hitbox" unique_id=1777275285]
-position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_766q4")
 
 [node name="MonsterEnemy6" type="CharacterBody2D" parent="Map/Enemies" unique_id=1900453516]
 position = Vector2(3168, 320)
+collision_layer = 2
 script = ExtResource("45_m7xe6")
 speed = 60.0
 patrol_distance = 65.0
@@ -12956,13 +12962,14 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_beiro")
 
 [node name="Hitbox" type="Area2D" parent="Map/Enemies/MonsterEnemy6" unique_id=1652981056]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Enemies/MonsterEnemy6/Hitbox" unique_id=2134808327]
-position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_nihrn")
 
 [node name="MonsterEnemy7" type="CharacterBody2D" parent="Map/Enemies" unique_id=382806979]
 position = Vector2(3808, 208)
+collision_layer = 2
 script = ExtResource("45_m7xe6")
 speed = 55.0
 patrol_distance = 60.0
@@ -12978,13 +12985,14 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_k2xl1")
 
 [node name="Hitbox" type="Area2D" parent="Map/Enemies/MonsterEnemy7" unique_id=1088326511]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Enemies/MonsterEnemy7/Hitbox" unique_id=1971431143]
-position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ltu1c")
 
 [node name="MonsterEnemy8" type="CharacterBody2D" parent="Map/Enemies" unique_id=1614709932]
 position = Vector2(4576, 144)
+collision_layer = 2
 script = ExtResource("45_m7xe6")
 speed = 50.0
 patrol_distance = 50.0
@@ -13000,9 +13008,9 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ewyk0")
 
 [node name="Hitbox" type="Area2D" parent="Map/Enemies/MonsterEnemy8" unique_id=1693891028]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Enemies/MonsterEnemy8/Hitbox" unique_id=1220290895]
-position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ykx2q")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1209145229]

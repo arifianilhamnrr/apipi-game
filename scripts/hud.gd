@@ -25,6 +25,16 @@ func add_score(points: int) -> void:
 	update_display()
 	_pop(score_val)
 
+func reset_game() -> void:
+	score = 0
+	fruits = 0
+	lives = 3
+	update_display()
+	update_lives(lives)
+	_pop(score_val)
+	_pop(fruits_val)
+	_pop(lives_val)
+
 func update_lives(count: int) -> void:
 	lives = count
 	if lives_val:

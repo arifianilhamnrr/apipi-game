@@ -44,10 +44,10 @@ func hit_by_enemy() -> void:
 	get_tree().call_group("hud", "update_lives", lives)
 	
 	if lives <= 0:
-		# Reset to the very beginning of the level!
+		# Reset to the very beginning of the level and reset score!
 		lives = max_lives
 		spawn_position = start_position
-		get_tree().call_group("hud", "update_lives", lives)
+		get_tree().call_group("hud", "reset_game")
 		respawn()
 		_start_invulnerability(1.5)
 	else:
