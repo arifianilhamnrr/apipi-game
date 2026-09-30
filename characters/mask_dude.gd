@@ -3,10 +3,12 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const DOUBLE_JUMP_VELOCITY = -370.0
+const SFX_JUMP = preload("res://assets/Audio/jump.wav")
 
 var jump_count: int = 0
 var max_jumps: int = 2
 var jump_held: bool = false
+var jump_sfx_player: AudioStreamPlayer
 
 var max_lives: int = 3
 var lives: int = 3
@@ -27,6 +29,13 @@ func _ready() -> void:
 				break
 	if sprite2d:
 		sprite2d.play("Idle")
+	
+	jump_sfx_player = AudioStreamPlayer.new()
+	jump_sfx_player.name = "JumpSFXPlayer"
+	jump_sfx_player.stream = SFX_JUMP
+	jump_sfx_player.volume_db = -4.0
+	add_child(jump_sfx_player)
+	
 	get_tree().call_group("hud", "update_lives", lives)
 
 func respawn() -> void:
@@ -111,11 +120,17 @@ func _physics_process(delta: float) -> void:
 			jump_count = 1
 			if sprite2d:
 				sprite2d.play("Jump")
+			if jump_sfx_player:
+				jump_sfx_player.pitch_scale = 1.0
+				jump_sfx_player.play()
 		elif jump_count < max_jumps:
 			velocity.y = DOUBLE_JUMP_VELOCITY
 			jump_count += 1
 			if sprite2d:
 				sprite2d.play("Double Jump")
+			if jump_sfx_player:
+				jump_sfx_player.pitch_scale = 1.25
+				jump_sfx_player.play()
 
 	# Horizontal movement
 	var direction := get_movement_direction()

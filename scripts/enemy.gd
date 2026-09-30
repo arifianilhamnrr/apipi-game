@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const SFX_STOMP = preload("res://assets/Audio/stomp.wav")
+
 @export var speed: float = 65.0
 @export var patrol_distance: float = 80.0
 
@@ -59,6 +61,18 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 
+func _play_stomp_sfx() -> void:
+	var sfx = AudioStreamPlayer.new()
+	sfx.stream = SFX_STOMP
+	sfx.volume_db = -1.0
+	var parent_node: Node = get_tree().current_scene
+	if parent_node == null:
+		parent_node = get_parent()
+	if parent_node:
+		parent_node.add_child(sfx)
+		sfx.play()
+		sfx.finished.connect(sfx.queue_free)
+
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if is_dead or not body.is_in_group("player"):
 		return
@@ -74,6 +88,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 			hitbox.set_deferred("monitorable", false)
 		body.bounce(-520.0)
 		get_tree().call_group("hud", "add_score", 200)
+		_play_stomp_sfx()
 		if sprite and sprite.sprite_frames and sprite.sprite_frames.has_animation("hit"):
 			sprite.play("hit")
 		var tween = create_tween()
