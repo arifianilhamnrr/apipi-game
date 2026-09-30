@@ -1,5 +1,6 @@
 extends Area2D
 
+@export var points: int = 100
 var collected: bool = false
 var sprite: AnimatedSprite2D
 
@@ -17,6 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	if body.is_in_group("player") or body.has_method("respawn"):
 		collected = true
+		get_tree().call_group("hud", "add_fruit", points)
 		if sprite and sprite.sprite_frames and sprite.sprite_frames.has_animation("collected"):
 			sprite.play("collected")
 		var tween = create_tween()
