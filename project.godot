@@ -13,7 +13,7 @@ config_version=5
 config/name="Game 1 Kelas C Arifian Ilham"
 run/main_scene="res://node_2d.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.png"
+config/icon="uid://cpujrmgd1ee10"
 
 [display]
 
