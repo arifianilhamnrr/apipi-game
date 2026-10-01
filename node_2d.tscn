@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" path="res://assets/Traps/Fire/Off.png" id="43_whnp6"]
 [ext_resource type="Texture2D" path="res://assets/Traps/Fire/On (16x32).png" id="44_22e24"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="45_m7xe6"]
+[ext_resource type="Script" path="res://scripts/touch_controls.gd" id="46_2v765"]
 [ext_resource type="Texture2D" path="res://assets/TouchControls/btn_left_normal.png" id="46_ytlpd"]
 [ext_resource type="Texture2D" path="res://assets/TouchControls/btn_left_pressed.png" id="47_2v765"]
 [ext_resource type="Texture2D" path="res://assets/TouchControls/btn_right_normal.png" id="48_b8fb0"]
@@ -13171,6 +13172,7 @@ text = "❤️❤️❤️"
 
 [node name="TouchControls" type="CanvasLayer" parent="." unique_id=1757731527]
 layer = 15
+script = ExtResource("46_2v765")
 
 [node name="BtnLeft" type="TouchScreenButton" parent="TouchControls" unique_id=984531103]
 position = Vector2(40, 580)
