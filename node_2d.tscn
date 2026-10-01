@@ -1,50 +1,58 @@
-[gd_scene format=4 uid="uid://m47xfweht6yl"]
+[gd_scene format=4]
 
-[ext_resource type="Script" uid="uid://bbqdumfm0cw3a" path="res://scripts/background_layer.gd" id="1_0xo8l"]
-[ext_resource type="Texture2D" uid="uid://bdy6m0wy1d8wh" path="res://assets/Background/Brown.png" id="1_d21ai"]
-[ext_resource type="Texture2D" uid="uid://d3sskgms61le8" path="res://assets/Terrain/Terrain (16x16).png" id="2_rj586"]
-[ext_resource type="Texture2D" uid="uid://bcq7bcl7i7oxr" path="res://assets/Items/Checkpoints/Start/Start (Idle).png" id="3_4d7sh"]
-[ext_resource type="Texture2D" uid="uid://d5mwxaf5e4wi" path="res://assets/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="4_ir8iy"]
-[ext_resource type="Texture2D" uid="uid://cxh1qihuxsewc" path="res://assets/Items/Checkpoints/End/End (Idle).png" id="5_hqns4"]
-[ext_resource type="Script" uid="uid://bjjjyavbe0upc" path="res://scripts/finish_flag.gd" id="6_ornx7"]
-[ext_resource type="Texture2D" uid="uid://bnewobjv1sy2l" path="res://assets/Items/Fruits/Apple.png" id="6_x0ka3"]
-[ext_resource type="Texture2D" uid="uid://cmgd7i36acf4" path="res://assets/Items/Boxes/Box1/Idle.png" id="7_0h7mo"]
-[ext_resource type="Script" uid="uid://bbfmdmcog36e3" path="res://scripts/checkpoint.gd" id="7_cnnru"]
-[ext_resource type="Texture2D" uid="uid://dmubctacnmyxm" path="res://assets/Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png" id="8_540hr"]
+[ext_resource type="Script" path="res://scripts/background_layer.gd" id="1_0xo8l"]
+[ext_resource type="Texture2D" path="res://assets/Background/Brown.png" id="1_d21ai"]
+[ext_resource type="Texture2D" path="res://assets/Terrain/Terrain (16x16).png" id="2_rj586"]
+[ext_resource type="Texture2D" path="res://assets/Items/Checkpoints/Start/Start (Idle).png" id="3_4d7sh"]
+[ext_resource type="Texture2D" path="res://assets/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="4_ir8iy"]
+[ext_resource type="Texture2D" path="res://assets/Items/Checkpoints/End/End (Idle).png" id="5_hqns4"]
+[ext_resource type="Script" path="res://scripts/finish_flag.gd" id="6_ornx7"]
+[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Apple.png" id="6_x0ka3"]
+[ext_resource type="Texture2D" path="res://assets/Items/Boxes/Box1/Idle.png" id="7_0h7mo"]
+[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="7_cnnru"]
+[ext_resource type="Texture2D" path="res://assets/Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png" id="8_540hr"]
 [ext_resource type="PackedScene" path="res://characters/mask_dude.tscn" id="8_ir8iy"]
-[ext_resource type="Script" uid="uid://dusmkc3jb7h7k" path="res://characters/mask_dude.gd" id="9_4d7sh"]
-[ext_resource type="Script" uid="uid://cb2j3jbafpg21" path="res://scripts/fruit.gd" id="10_6ip5v"]
-[ext_resource type="AudioStream" uid="uid://yys6j6qaqqg7" path="res://assets/Audio/mario_bgm.mp3" id="10_ir8iy"]
-[ext_resource type="Texture2D" uid="uid://djjb3x8uh81ft" path="res://assets/Items/Fruits/Collected.png" id="11_q5dlx"]
-[ext_resource type="Texture2D" uid="uid://ffq00ciw8dtj" path="res://assets/Items/Fruits/Bananas.png" id="12_c4wnb"]
-[ext_resource type="Texture2D" uid="uid://cvpjs5c1ijljc" path="res://assets/Items/Fruits/Cherries.png" id="13_7plk7"]
-[ext_resource type="Texture2D" uid="uid://jnonw1ahw8qq" path="res://assets/Items/Fruits/Kiwi.png" id="14_fbwgr"]
-[ext_resource type="Texture2D" uid="uid://ckx1yx8qy5b" path="res://assets/Items/Fruits/Melon.png" id="15_7mj2a"]
-[ext_resource type="Texture2D" uid="uid://xkxi5okl711c" path="res://assets/Items/Fruits/Strawberry.png" id="16_fshgd"]
-[ext_resource type="Texture2D" uid="uid://cwv8bnqe8fex" path="res://assets/Items/Fruits/Pineapple.png" id="17_lbrxf"]
-[ext_resource type="Texture2D" uid="uid://bv2t8njxeojif" path="res://assets/Items/Fruits/Orange.png" id="18_xjt7e"]
-[ext_resource type="Script" uid="uid://b1v1n3jutgcq6" path="res://scripts/hazard.gd" id="26_4qosj"]
-[ext_resource type="Texture2D" uid="uid://iomijnyonrxx" path="res://assets/Traps/Spikes/Idle.png" id="27_cjlbh"]
-[ext_resource type="Script" uid="uid://dqh6uj6upmndj" path="res://scripts/trampoline.gd" id="28_kfelt"]
-[ext_resource type="Texture2D" uid="uid://baimjayihd2oe" path="res://assets/Traps/Trampoline/Idle.png" id="29_ytlpd"]
-[ext_resource type="Texture2D" uid="uid://depnm0emycu6x" path="res://assets/Traps/Trampoline/Jump (28x28).png" id="30_2v765"]
-[ext_resource type="Script" uid="uid://dgug68rc0wpcc" path="res://scripts/saw.gd" id="31_b8fb0"]
-[ext_resource type="Texture2D" uid="uid://cvk81fwr07tew" path="res://assets/Traps/Saw/On (38x38).png" id="32_ma08v"]
-[ext_resource type="Script" uid="uid://6adbfhyq4h8r" path="res://scripts/victory_canvas.gd" id="34_s32dh"]
-[ext_resource type="Script" uid="uid://bo3wqnfvdfs6e" path="res://scripts/moving_platform.gd" id="35_kfelt"]
-[ext_resource type="Texture2D" uid="uid://cg0afifqlhoc1" path="res://assets/Traps/Platforms/Brown On (32x8).png" id="36_ytlpd"]
-[ext_resource type="Script" uid="uid://d00j1yvl8816k" path="res://scripts/spiked_ball.gd" id="37_2v765"]
-[ext_resource type="Texture2D" uid="uid://c4n3c6bqe822h" path="res://assets/Traps/Spiked Ball/Chain.png" id="38_b8fb0"]
-[ext_resource type="Texture2D" uid="uid://b6mmpcu844roj" path="res://assets/Traps/Spiked Ball/Spiked Ball.png" id="39_ma08v"]
-[ext_resource type="Script" uid="uid://boib5h5c8rw66" path="res://scripts/rock_head.gd" id="40_s32dh"]
-[ext_resource type="Texture2D" uid="uid://b04bjlnu0cw2g" path="res://assets/Traps/Rock Head/Idle.png" id="41_037st"]
-[ext_resource type="Texture2D" uid="uid://mio4ipe2gwnn" path="res://assets/Traps/Rock Head/Top Hit (42x42).png" id="41_xjt7e"]
-[ext_resource type="Texture2D" uid="uid://bseu7ladpcnkd" path="res://assets/Traps/Rock Head/Blink (42x42).png" id="42_0xo8l"]
-[ext_resource type="Script" uid="uid://h5bwjxuob6oh" path="res://scripts/fire_trap.gd" id="42_6orn5"]
-[ext_resource type="Texture2D" uid="uid://d1ttjw7awi0l8" path="res://assets/Traps/Fire/Off.png" id="43_whnp6"]
-[ext_resource type="Texture2D" uid="uid://dcegnq4lxak6k" path="res://assets/Traps/Fire/On (16x32).png" id="44_22e24"]
-[ext_resource type="Script" uid="uid://c26y781e3aktl" path="res://scripts/enemy.gd" id="45_m7xe6"]
-[ext_resource type="Script" uid="uid://d4kc5kshyn246" path="res://scripts/hud.gd" id="50_qgxp6"]
+[ext_resource type="Script" path="res://characters/mask_dude.gd" id="9_4d7sh"]
+[ext_resource type="Script" path="res://scripts/fruit.gd" id="10_6ip5v"]
+[ext_resource type="AudioStream" path="res://assets/Audio/mario_bgm.mp3" id="10_ir8iy"]
+[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Collected.png" id="11_q5dlx"]
+[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Bananas.png" id="12_c4wnb"]
+[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Cherries.png" id="13_7plk7"]
+[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Kiwi.png" id="14_fbwgr"]
+[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Melon.png" id="15_7mj2a"]
+[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Strawberry.png" id="16_fshgd"]
+[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Pineapple.png" id="17_lbrxf"]
+[ext_resource type="Texture2D" path="res://assets/Items/Fruits/Orange.png" id="18_xjt7e"]
+[ext_resource type="Script" path="res://scripts/hazard.gd" id="26_4qosj"]
+[ext_resource type="Texture2D" path="res://assets/Traps/Spikes/Idle.png" id="27_cjlbh"]
+[ext_resource type="Script" path="res://scripts/trampoline.gd" id="28_kfelt"]
+[ext_resource type="Texture2D" path="res://assets/Traps/Trampoline/Idle.png" id="29_ytlpd"]
+[ext_resource type="Texture2D" path="res://assets/Traps/Trampoline/Jump (28x28).png" id="30_2v765"]
+[ext_resource type="Script" path="res://scripts/saw.gd" id="31_b8fb0"]
+[ext_resource type="Texture2D" path="res://assets/Traps/Saw/On (38x38).png" id="32_ma08v"]
+[ext_resource type="Script" path="res://scripts/victory_canvas.gd" id="34_s32dh"]
+[ext_resource type="Script" path="res://scripts/moving_platform.gd" id="35_kfelt"]
+[ext_resource type="Texture2D" path="res://assets/Traps/Platforms/Brown On (32x8).png" id="36_ytlpd"]
+[ext_resource type="Script" path="res://scripts/spiked_ball.gd" id="37_2v765"]
+[ext_resource type="Texture2D" path="res://assets/Traps/Spiked Ball/Chain.png" id="38_b8fb0"]
+[ext_resource type="Texture2D" path="res://assets/Traps/Spiked Ball/Spiked Ball.png" id="39_ma08v"]
+[ext_resource type="Script" path="res://scripts/rock_head.gd" id="40_s32dh"]
+[ext_resource type="Texture2D" path="res://assets/Traps/Rock Head/Idle.png" id="41_037st"]
+[ext_resource type="Texture2D" path="res://assets/Traps/Rock Head/Top Hit (42x42).png" id="41_xjt7e"]
+[ext_resource type="Texture2D" path="res://assets/Traps/Rock Head/Blink (42x42).png" id="42_0xo8l"]
+[ext_resource type="Script" path="res://scripts/fire_trap.gd" id="42_6orn5"]
+[ext_resource type="Texture2D" path="res://assets/Traps/Fire/Off.png" id="43_whnp6"]
+[ext_resource type="Texture2D" path="res://assets/Traps/Fire/On (16x32).png" id="44_22e24"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="45_m7xe6"]
+[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_left_normal.png" id="46_ytlpd"]
+[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_left_pressed.png" id="47_2v765"]
+[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_right_normal.png" id="48_b8fb0"]
+[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_right_pressed.png" id="49_ma08v"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="50_qgxp6"]
+[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_jump_normal.png" id="50_s32dh"]
+[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_jump_pressed.png" id="51_037st"]
+[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_restart_normal.png" id="52_6orn5"]
+[ext_resource type="Texture2D" path="res://assets/TouchControls/btn_restart_pressed.png" id="53_whnp6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nr8wp"]
 texture = ExtResource("2_rj586")
@@ -12068,7 +12076,8 @@ texture = ExtResource("7_0h7mo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Decoration/Crate02" unique_id=1724790268]
 shape = SubResource("RectangleShape2D_0yxu7")
 
-[node name="MaskDude" parent="Map" unique_id=277616228 instance=ExtResource("8_ir8iy")]
+[node name="MaskDude" type="CharacterBody2D" parent="Map" unique_id=277616228 instance=ExtResource("8_ir8iy")]
+texture_filter = 1
 position = Vector2(64, 368)
 script = ExtResource("9_4d7sh")
 
@@ -13034,22 +13043,22 @@ theme_override_constants/separation = 12
 
 [node name="TitleLabel" type="Label" parent="VictoryCanvas/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=475598359]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
 theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
 text = "★ STAGE CLEAR! ★"
 horizontal_alignment = 1
 
 [node name="FinalScoreLabel" type="Label" parent="VictoryCanvas/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1492374808]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.95, 0.4, 1)
 theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 0.95, 0.4, 1)
 text = "Skor Akhir: 0"
 horizontal_alignment = 1
 
 [node name="SubLabel" type="Label" parent="VictoryCanvas/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1456223261]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
 theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
 text = "Hebat! Kamu berhasil menyelesaikan stage ini!
 Tekan [R] untuk mencoba lagi."
 horizontal_alignment = 1
@@ -13096,23 +13105,23 @@ theme_override_constants/separation = -2
 
 [node name="@Label@2" type="Label" parent="HUD/MarginContainer/TopHBox/StatsPanel/@MarginContainer@8/@HBoxContainer@7/@VBoxContainer@4" unique_id=1926925631]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.82, 0.25, 1)
 theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(1, 0.82, 0.25, 1)
 text = "★ SCORE"
 
 [node name="ScoreValue" type="Label" parent="HUD/MarginContainer/TopHBox/StatsPanel/@MarginContainer@8/@HBoxContainer@7/@VBoxContainer@4" unique_id=1288930855]
 layout_mode = 2
+theme_override_font_sizes/font_size = 22
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 2
-theme_override_font_sizes/font_size = 22
 text = "000000"
 
 [node name="@Label@5" type="Label" parent="HUD/MarginContainer/TopHBox/StatsPanel/@MarginContainer@8/@HBoxContainer@7" unique_id=1628191488]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.4, 0.45, 0.6, 0.6)
 theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.4, 0.45, 0.6, 0.6)
 text = "|"
 
 [node name="@VBoxContainer@6" type="VBoxContainer" parent="HUD/MarginContainer/TopHBox/StatsPanel/@MarginContainer@8/@HBoxContainer@7" unique_id=1324932975]
@@ -13122,23 +13131,23 @@ theme_override_constants/separation = -2
 
 [node name="@Label@3" type="Label" parent="HUD/MarginContainer/TopHBox/StatsPanel/@MarginContainer@8/@HBoxContainer@7/@VBoxContainer@6" unique_id=65990265]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.45, 0.45, 1)
 theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(1, 0.45, 0.45, 1)
 text = "🍎 FRUITS"
 
 [node name="FruitsValue" type="Label" parent="HUD/MarginContainer/TopHBox/StatsPanel/@MarginContainer@8/@HBoxContainer@7/@VBoxContainer@6" unique_id=1162974310]
 layout_mode = 2
+theme_override_font_sizes/font_size = 22
 theme_override_colors/font_color = Color(0.45, 1, 0.55, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 2
-theme_override_font_sizes/font_size = 22
 text = "0"
 
 [node name="@Label@3" type="Label" parent="HUD/MarginContainer/TopHBox/StatsPanel/@MarginContainer@8/@HBoxContainer@7" unique_id=1813555807]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.4, 0.45, 0.6, 0.6)
 theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.4, 0.45, 0.6, 0.6)
 text = "|"
 
 [node name="LivesVBox" type="VBoxContainer" parent="HUD/MarginContainer/TopHBox/StatsPanel/@MarginContainer@8/@HBoxContainer@7" unique_id=1362764378]
@@ -13148,14 +13157,43 @@ theme_override_constants/separation = -2
 
 [node name="@Label@2" type="Label" parent="HUD/MarginContainer/TopHBox/StatsPanel/@MarginContainer@8/@HBoxContainer@7/LivesVBox" unique_id=1580076956]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.4, 0.5, 1)
 theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(1, 0.4, 0.5, 1)
 text = "❤️ LIVES"
 
 [node name="LivesValue" type="Label" parent="HUD/MarginContainer/TopHBox/StatsPanel/@MarginContainer@8/@HBoxContainer@7/LivesVBox" unique_id=1115694006]
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 2
-theme_override_font_sizes/font_size = 18
 text = "❤️❤️❤️"
+
+[node name="TouchControls" type="CanvasLayer" parent="." unique_id=1757731527]
+layer = 15
+
+[node name="BtnLeft" type="TouchScreenButton" parent="TouchControls" unique_id=984531103]
+position = Vector2(40, 580)
+texture_normal = ExtResource("46_ytlpd")
+texture_pressed = ExtResource("47_2v765")
+passby_press = true
+action = "ui_left"
+
+[node name="BtnRight" type="TouchScreenButton" parent="TouchControls" unique_id=397554559]
+position = Vector2(160, 580)
+texture_normal = ExtResource("48_b8fb0")
+texture_pressed = ExtResource("49_ma08v")
+passby_press = true
+action = "ui_right"
+
+[node name="BtnJump" type="TouchScreenButton" parent="TouchControls" unique_id=1645809606]
+position = Vector2(940, 570)
+texture_normal = ExtResource("50_s32dh")
+texture_pressed = ExtResource("51_037st")
+action = "ui_accept"
+
+[node name="BtnRestart" type="TouchScreenButton" parent="TouchControls" unique_id=1008870714]
+position = Vector2(1000, 16)
+texture_normal = ExtResource("52_6orn5")
+texture_pressed = ExtResource("53_whnp6")
+action = "Respawn"
